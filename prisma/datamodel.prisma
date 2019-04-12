@@ -1,0 +1,37 @@
+type Advocate {
+  advocateId: Int! @unique
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean! @default(value: "false")
+  sysFlag: Boolean! @default(value: "false")
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  overrides: [Override!]! @relation(name: "AdvocateOverrides")
+}
+
+type Override {
+  overrideId: Int! @unique
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean! @default(value: "false")
+  sysFlag: Boolean! @default(value: "false")
+  advocateId: Int 
+  advocate: Advocate @relation (name: "OverrideAdvocate")
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+}

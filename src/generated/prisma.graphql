@@ -1,0 +1,1796 @@
+# source: https://us1.prisma.sh/arvilsonm/prisma-sql/dev
+# timestamp: Fri Apr 12 2019 22:27:25 GMT+0800 (Malay Peninsula Standard Time)
+
+type Advocate {
+  advocateId: Int!
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean!
+  sysFlag: Boolean!
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  overrides(where: OverrideWhereInput, orderBy: OverrideOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Override!]
+}
+
+"""A connection to a list of items."""
+type AdvocateConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [AdvocateEdge]!
+  aggregate: AggregateAdvocate!
+}
+
+input AdvocateCreateInput {
+  advocateId: Int!
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  overrides: OverrideCreateManyInput
+}
+
+input AdvocateCreateOneInput {
+  create: AdvocateCreateInput
+  connect: AdvocateWhereUniqueInput
+}
+
+"""An edge in a connection."""
+type AdvocateEdge {
+  """The item at the end of the edge."""
+  node: Advocate!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum AdvocateOrderByInput {
+  advocateId_ASC
+  advocateId_DESC
+  insDateTime_ASC
+  insDateTime_DESC
+  updateTime_ASC
+  updateTime_DESC
+  delFlag_ASC
+  delFlag_DESC
+  sysFlag_ASC
+  sysFlag_DESC
+  salesAgentId_ASC
+  salesAgentId_DESC
+  companyName_ASC
+  companyName_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  phone_ASC
+  phone_DESC
+  textEmail_ASC
+  textEmail_DESC
+  streetAddress1_ASC
+  streetAddress1_DESC
+  streetAddress2_ASC
+  streetAddress2_DESC
+  city_ASC
+  city_DESC
+  state_ASC
+  state_DESC
+  postalCode_ASC
+  postalCode_DESC
+  country_ASC
+  country_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type AdvocatePreviousValues {
+  advocateId: Int!
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean!
+  sysFlag: Boolean!
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+}
+
+type AdvocateSubscriptionPayload {
+  mutation: MutationType!
+  node: Advocate
+  updatedFields: [String!]
+  previousValues: AdvocatePreviousValues
+}
+
+input AdvocateSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [AdvocateSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [AdvocateSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [AdvocateSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: AdvocateWhereInput
+}
+
+input AdvocateUpdateDataInput {
+  advocateId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  overrides: OverrideUpdateManyInput
+}
+
+input AdvocateUpdateInput {
+  advocateId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  overrides: OverrideUpdateManyInput
+}
+
+input AdvocateUpdateManyMutationInput {
+  advocateId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+}
+
+input AdvocateUpdateOneInput {
+  create: AdvocateCreateInput
+  connect: AdvocateWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
+  update: AdvocateUpdateDataInput
+  upsert: AdvocateUpsertNestedInput
+}
+
+input AdvocateUpsertNestedInput {
+  update: AdvocateUpdateDataInput!
+  create: AdvocateCreateInput!
+}
+
+input AdvocateWhereInput {
+  """Logical AND on all given filters."""
+  AND: [AdvocateWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [AdvocateWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [AdvocateWhereInput!]
+  advocateId: Int
+
+  """All values that are not equal to given value."""
+  advocateId_not: Int
+
+  """All values that are contained in given list."""
+  advocateId_in: [Int!]
+
+  """All values that are not contained in given list."""
+  advocateId_not_in: [Int!]
+
+  """All values less than the given value."""
+  advocateId_lt: Int
+
+  """All values less than or equal the given value."""
+  advocateId_lte: Int
+
+  """All values greater than the given value."""
+  advocateId_gt: Int
+
+  """All values greater than or equal the given value."""
+  advocateId_gte: Int
+  insDateTime: DateTime
+
+  """All values that are not equal to given value."""
+  insDateTime_not: DateTime
+
+  """All values that are contained in given list."""
+  insDateTime_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  insDateTime_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  insDateTime_lt: DateTime
+
+  """All values less than or equal the given value."""
+  insDateTime_lte: DateTime
+
+  """All values greater than the given value."""
+  insDateTime_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  insDateTime_gte: DateTime
+  updateTime: DateTime
+
+  """All values that are not equal to given value."""
+  updateTime_not: DateTime
+
+  """All values that are contained in given list."""
+  updateTime_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updateTime_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updateTime_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updateTime_lte: DateTime
+
+  """All values greater than the given value."""
+  updateTime_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updateTime_gte: DateTime
+  delFlag: Boolean
+
+  """All values that are not equal to given value."""
+  delFlag_not: Boolean
+  sysFlag: Boolean
+
+  """All values that are not equal to given value."""
+  sysFlag_not: Boolean
+  salesAgentId: Int
+
+  """All values that are not equal to given value."""
+  salesAgentId_not: Int
+
+  """All values that are contained in given list."""
+  salesAgentId_in: [Int!]
+
+  """All values that are not contained in given list."""
+  salesAgentId_not_in: [Int!]
+
+  """All values less than the given value."""
+  salesAgentId_lt: Int
+
+  """All values less than or equal the given value."""
+  salesAgentId_lte: Int
+
+  """All values greater than the given value."""
+  salesAgentId_gt: Int
+
+  """All values greater than or equal the given value."""
+  salesAgentId_gte: Int
+  companyName: String
+
+  """All values that are not equal to given value."""
+  companyName_not: String
+
+  """All values that are contained in given list."""
+  companyName_in: [String!]
+
+  """All values that are not contained in given list."""
+  companyName_not_in: [String!]
+
+  """All values less than the given value."""
+  companyName_lt: String
+
+  """All values less than or equal the given value."""
+  companyName_lte: String
+
+  """All values greater than the given value."""
+  companyName_gt: String
+
+  """All values greater than or equal the given value."""
+  companyName_gte: String
+
+  """All values containing the given string."""
+  companyName_contains: String
+
+  """All values not containing the given string."""
+  companyName_not_contains: String
+
+  """All values starting with the given string."""
+  companyName_starts_with: String
+
+  """All values not starting with the given string."""
+  companyName_not_starts_with: String
+
+  """All values ending with the given string."""
+  companyName_ends_with: String
+
+  """All values not ending with the given string."""
+  companyName_not_ends_with: String
+  name: String
+
+  """All values that are not equal to given value."""
+  name_not: String
+
+  """All values that are contained in given list."""
+  name_in: [String!]
+
+  """All values that are not contained in given list."""
+  name_not_in: [String!]
+
+  """All values less than the given value."""
+  name_lt: String
+
+  """All values less than or equal the given value."""
+  name_lte: String
+
+  """All values greater than the given value."""
+  name_gt: String
+
+  """All values greater than or equal the given value."""
+  name_gte: String
+
+  """All values containing the given string."""
+  name_contains: String
+
+  """All values not containing the given string."""
+  name_not_contains: String
+
+  """All values starting with the given string."""
+  name_starts_with: String
+
+  """All values not starting with the given string."""
+  name_not_starts_with: String
+
+  """All values ending with the given string."""
+  name_ends_with: String
+
+  """All values not ending with the given string."""
+  name_not_ends_with: String
+  email: String
+
+  """All values that are not equal to given value."""
+  email_not: String
+
+  """All values that are contained in given list."""
+  email_in: [String!]
+
+  """All values that are not contained in given list."""
+  email_not_in: [String!]
+
+  """All values less than the given value."""
+  email_lt: String
+
+  """All values less than or equal the given value."""
+  email_lte: String
+
+  """All values greater than the given value."""
+  email_gt: String
+
+  """All values greater than or equal the given value."""
+  email_gte: String
+
+  """All values containing the given string."""
+  email_contains: String
+
+  """All values not containing the given string."""
+  email_not_contains: String
+
+  """All values starting with the given string."""
+  email_starts_with: String
+
+  """All values not starting with the given string."""
+  email_not_starts_with: String
+
+  """All values ending with the given string."""
+  email_ends_with: String
+
+  """All values not ending with the given string."""
+  email_not_ends_with: String
+  phone: String
+
+  """All values that are not equal to given value."""
+  phone_not: String
+
+  """All values that are contained in given list."""
+  phone_in: [String!]
+
+  """All values that are not contained in given list."""
+  phone_not_in: [String!]
+
+  """All values less than the given value."""
+  phone_lt: String
+
+  """All values less than or equal the given value."""
+  phone_lte: String
+
+  """All values greater than the given value."""
+  phone_gt: String
+
+  """All values greater than or equal the given value."""
+  phone_gte: String
+
+  """All values containing the given string."""
+  phone_contains: String
+
+  """All values not containing the given string."""
+  phone_not_contains: String
+
+  """All values starting with the given string."""
+  phone_starts_with: String
+
+  """All values not starting with the given string."""
+  phone_not_starts_with: String
+
+  """All values ending with the given string."""
+  phone_ends_with: String
+
+  """All values not ending with the given string."""
+  phone_not_ends_with: String
+  textEmail: String
+
+  """All values that are not equal to given value."""
+  textEmail_not: String
+
+  """All values that are contained in given list."""
+  textEmail_in: [String!]
+
+  """All values that are not contained in given list."""
+  textEmail_not_in: [String!]
+
+  """All values less than the given value."""
+  textEmail_lt: String
+
+  """All values less than or equal the given value."""
+  textEmail_lte: String
+
+  """All values greater than the given value."""
+  textEmail_gt: String
+
+  """All values greater than or equal the given value."""
+  textEmail_gte: String
+
+  """All values containing the given string."""
+  textEmail_contains: String
+
+  """All values not containing the given string."""
+  textEmail_not_contains: String
+
+  """All values starting with the given string."""
+  textEmail_starts_with: String
+
+  """All values not starting with the given string."""
+  textEmail_not_starts_with: String
+
+  """All values ending with the given string."""
+  textEmail_ends_with: String
+
+  """All values not ending with the given string."""
+  textEmail_not_ends_with: String
+  streetAddress1: String
+
+  """All values that are not equal to given value."""
+  streetAddress1_not: String
+
+  """All values that are contained in given list."""
+  streetAddress1_in: [String!]
+
+  """All values that are not contained in given list."""
+  streetAddress1_not_in: [String!]
+
+  """All values less than the given value."""
+  streetAddress1_lt: String
+
+  """All values less than or equal the given value."""
+  streetAddress1_lte: String
+
+  """All values greater than the given value."""
+  streetAddress1_gt: String
+
+  """All values greater than or equal the given value."""
+  streetAddress1_gte: String
+
+  """All values containing the given string."""
+  streetAddress1_contains: String
+
+  """All values not containing the given string."""
+  streetAddress1_not_contains: String
+
+  """All values starting with the given string."""
+  streetAddress1_starts_with: String
+
+  """All values not starting with the given string."""
+  streetAddress1_not_starts_with: String
+
+  """All values ending with the given string."""
+  streetAddress1_ends_with: String
+
+  """All values not ending with the given string."""
+  streetAddress1_not_ends_with: String
+  streetAddress2: String
+
+  """All values that are not equal to given value."""
+  streetAddress2_not: String
+
+  """All values that are contained in given list."""
+  streetAddress2_in: [String!]
+
+  """All values that are not contained in given list."""
+  streetAddress2_not_in: [String!]
+
+  """All values less than the given value."""
+  streetAddress2_lt: String
+
+  """All values less than or equal the given value."""
+  streetAddress2_lte: String
+
+  """All values greater than the given value."""
+  streetAddress2_gt: String
+
+  """All values greater than or equal the given value."""
+  streetAddress2_gte: String
+
+  """All values containing the given string."""
+  streetAddress2_contains: String
+
+  """All values not containing the given string."""
+  streetAddress2_not_contains: String
+
+  """All values starting with the given string."""
+  streetAddress2_starts_with: String
+
+  """All values not starting with the given string."""
+  streetAddress2_not_starts_with: String
+
+  """All values ending with the given string."""
+  streetAddress2_ends_with: String
+
+  """All values not ending with the given string."""
+  streetAddress2_not_ends_with: String
+  city: String
+
+  """All values that are not equal to given value."""
+  city_not: String
+
+  """All values that are contained in given list."""
+  city_in: [String!]
+
+  """All values that are not contained in given list."""
+  city_not_in: [String!]
+
+  """All values less than the given value."""
+  city_lt: String
+
+  """All values less than or equal the given value."""
+  city_lte: String
+
+  """All values greater than the given value."""
+  city_gt: String
+
+  """All values greater than or equal the given value."""
+  city_gte: String
+
+  """All values containing the given string."""
+  city_contains: String
+
+  """All values not containing the given string."""
+  city_not_contains: String
+
+  """All values starting with the given string."""
+  city_starts_with: String
+
+  """All values not starting with the given string."""
+  city_not_starts_with: String
+
+  """All values ending with the given string."""
+  city_ends_with: String
+
+  """All values not ending with the given string."""
+  city_not_ends_with: String
+  state: String
+
+  """All values that are not equal to given value."""
+  state_not: String
+
+  """All values that are contained in given list."""
+  state_in: [String!]
+
+  """All values that are not contained in given list."""
+  state_not_in: [String!]
+
+  """All values less than the given value."""
+  state_lt: String
+
+  """All values less than or equal the given value."""
+  state_lte: String
+
+  """All values greater than the given value."""
+  state_gt: String
+
+  """All values greater than or equal the given value."""
+  state_gte: String
+
+  """All values containing the given string."""
+  state_contains: String
+
+  """All values not containing the given string."""
+  state_not_contains: String
+
+  """All values starting with the given string."""
+  state_starts_with: String
+
+  """All values not starting with the given string."""
+  state_not_starts_with: String
+
+  """All values ending with the given string."""
+  state_ends_with: String
+
+  """All values not ending with the given string."""
+  state_not_ends_with: String
+  postalCode: String
+
+  """All values that are not equal to given value."""
+  postalCode_not: String
+
+  """All values that are contained in given list."""
+  postalCode_in: [String!]
+
+  """All values that are not contained in given list."""
+  postalCode_not_in: [String!]
+
+  """All values less than the given value."""
+  postalCode_lt: String
+
+  """All values less than or equal the given value."""
+  postalCode_lte: String
+
+  """All values greater than the given value."""
+  postalCode_gt: String
+
+  """All values greater than or equal the given value."""
+  postalCode_gte: String
+
+  """All values containing the given string."""
+  postalCode_contains: String
+
+  """All values not containing the given string."""
+  postalCode_not_contains: String
+
+  """All values starting with the given string."""
+  postalCode_starts_with: String
+
+  """All values not starting with the given string."""
+  postalCode_not_starts_with: String
+
+  """All values ending with the given string."""
+  postalCode_ends_with: String
+
+  """All values not ending with the given string."""
+  postalCode_not_ends_with: String
+  country: String
+
+  """All values that are not equal to given value."""
+  country_not: String
+
+  """All values that are contained in given list."""
+  country_in: [String!]
+
+  """All values that are not contained in given list."""
+  country_not_in: [String!]
+
+  """All values less than the given value."""
+  country_lt: String
+
+  """All values less than or equal the given value."""
+  country_lte: String
+
+  """All values greater than the given value."""
+  country_gt: String
+
+  """All values greater than or equal the given value."""
+  country_gte: String
+
+  """All values containing the given string."""
+  country_contains: String
+
+  """All values not containing the given string."""
+  country_not_contains: String
+
+  """All values starting with the given string."""
+  country_starts_with: String
+
+  """All values not starting with the given string."""
+  country_not_starts_with: String
+
+  """All values ending with the given string."""
+  country_ends_with: String
+
+  """All values not ending with the given string."""
+  country_not_ends_with: String
+  overrides_every: OverrideWhereInput
+  overrides_some: OverrideWhereInput
+  overrides_none: OverrideWhereInput
+}
+
+input AdvocateWhereUniqueInput {
+  advocateId: Int
+}
+
+type AggregateAdvocate {
+  count: Int!
+}
+
+type AggregateOverride {
+  count: Int!
+}
+
+type BatchPayload {
+  """The number of nodes that have been affected by the Batch operation."""
+  count: Long!
+}
+
+scalar DateTime
+
+"""
+The `Long` scalar type represents non-fractional signed whole numeric values.
+Long can represent values between -(2^63) and 2^63 - 1.
+"""
+scalar Long
+
+type Mutation {
+  createOverride(data: OverrideCreateInput!): Override!
+  createAdvocate(data: AdvocateCreateInput!): Advocate!
+  updateOverride(data: OverrideUpdateInput!, where: OverrideWhereUniqueInput!): Override
+  updateAdvocate(data: AdvocateUpdateInput!, where: AdvocateWhereUniqueInput!): Advocate
+  deleteOverride(where: OverrideWhereUniqueInput!): Override
+  deleteAdvocate(where: AdvocateWhereUniqueInput!): Advocate
+  upsertOverride(where: OverrideWhereUniqueInput!, create: OverrideCreateInput!, update: OverrideUpdateInput!): Override!
+  upsertAdvocate(where: AdvocateWhereUniqueInput!, create: AdvocateCreateInput!, update: AdvocateUpdateInput!): Advocate!
+  updateManyOverrides(data: OverrideUpdateManyMutationInput!, where: OverrideWhereInput): BatchPayload!
+  updateManyAdvocates(data: AdvocateUpdateManyMutationInput!, where: AdvocateWhereInput): BatchPayload!
+  deleteManyOverrides(where: OverrideWhereInput): BatchPayload!
+  deleteManyAdvocates(where: AdvocateWhereInput): BatchPayload!
+}
+
+enum MutationType {
+  CREATED
+  UPDATED
+  DELETED
+}
+
+"""An object with an ID"""
+interface Node {
+  """The id of the object."""
+  id: ID!
+}
+
+type Override {
+  overrideId: Int!
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean!
+  sysFlag: Boolean!
+  advocateId: Int
+  advocate: Advocate
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+}
+
+"""A connection to a list of items."""
+type OverrideConnection {
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """A list of edges."""
+  edges: [OverrideEdge]!
+  aggregate: AggregateOverride!
+}
+
+input OverrideCreateInput {
+  overrideId: Int!
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  advocateId: Int
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+  advocate: AdvocateCreateOneInput
+}
+
+input OverrideCreateManyInput {
+  create: [OverrideCreateInput!]
+  connect: [OverrideWhereUniqueInput!]
+}
+
+"""An edge in a connection."""
+type OverrideEdge {
+  """The item at the end of the edge."""
+  node: Override!
+
+  """A cursor for use in pagination."""
+  cursor: String!
+}
+
+enum OverrideOrderByInput {
+  overrideId_ASC
+  overrideId_DESC
+  insDateTime_ASC
+  insDateTime_DESC
+  updateTime_ASC
+  updateTime_DESC
+  delFlag_ASC
+  delFlag_DESC
+  sysFlag_ASC
+  sysFlag_DESC
+  advocateId_ASC
+  advocateId_DESC
+  teamLeader_ASC
+  teamLeader_DESC
+  referral_ASC
+  referral_DESC
+  referralEmail_ASC
+  referralEmail_DESC
+  textEmail_ASC
+  textEmail_DESC
+  salesOverride_ASC
+  salesOverride_DESC
+  referralOverride_ASC
+  referralOverride_DESC
+  managerOverride_ASC
+  managerOverride_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+type OverridePreviousValues {
+  overrideId: Int!
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean!
+  sysFlag: Boolean!
+  advocateId: Int
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+}
+
+input OverrideScalarWhereInput {
+  """Logical AND on all given filters."""
+  AND: [OverrideScalarWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [OverrideScalarWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [OverrideScalarWhereInput!]
+  overrideId: Int
+
+  """All values that are not equal to given value."""
+  overrideId_not: Int
+
+  """All values that are contained in given list."""
+  overrideId_in: [Int!]
+
+  """All values that are not contained in given list."""
+  overrideId_not_in: [Int!]
+
+  """All values less than the given value."""
+  overrideId_lt: Int
+
+  """All values less than or equal the given value."""
+  overrideId_lte: Int
+
+  """All values greater than the given value."""
+  overrideId_gt: Int
+
+  """All values greater than or equal the given value."""
+  overrideId_gte: Int
+  insDateTime: DateTime
+
+  """All values that are not equal to given value."""
+  insDateTime_not: DateTime
+
+  """All values that are contained in given list."""
+  insDateTime_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  insDateTime_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  insDateTime_lt: DateTime
+
+  """All values less than or equal the given value."""
+  insDateTime_lte: DateTime
+
+  """All values greater than the given value."""
+  insDateTime_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  insDateTime_gte: DateTime
+  updateTime: DateTime
+
+  """All values that are not equal to given value."""
+  updateTime_not: DateTime
+
+  """All values that are contained in given list."""
+  updateTime_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updateTime_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updateTime_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updateTime_lte: DateTime
+
+  """All values greater than the given value."""
+  updateTime_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updateTime_gte: DateTime
+  delFlag: Boolean
+
+  """All values that are not equal to given value."""
+  delFlag_not: Boolean
+  sysFlag: Boolean
+
+  """All values that are not equal to given value."""
+  sysFlag_not: Boolean
+  advocateId: Int
+
+  """All values that are not equal to given value."""
+  advocateId_not: Int
+
+  """All values that are contained in given list."""
+  advocateId_in: [Int!]
+
+  """All values that are not contained in given list."""
+  advocateId_not_in: [Int!]
+
+  """All values less than the given value."""
+  advocateId_lt: Int
+
+  """All values less than or equal the given value."""
+  advocateId_lte: Int
+
+  """All values greater than the given value."""
+  advocateId_gt: Int
+
+  """All values greater than or equal the given value."""
+  advocateId_gte: Int
+  teamLeader: String
+
+  """All values that are not equal to given value."""
+  teamLeader_not: String
+
+  """All values that are contained in given list."""
+  teamLeader_in: [String!]
+
+  """All values that are not contained in given list."""
+  teamLeader_not_in: [String!]
+
+  """All values less than the given value."""
+  teamLeader_lt: String
+
+  """All values less than or equal the given value."""
+  teamLeader_lte: String
+
+  """All values greater than the given value."""
+  teamLeader_gt: String
+
+  """All values greater than or equal the given value."""
+  teamLeader_gte: String
+
+  """All values containing the given string."""
+  teamLeader_contains: String
+
+  """All values not containing the given string."""
+  teamLeader_not_contains: String
+
+  """All values starting with the given string."""
+  teamLeader_starts_with: String
+
+  """All values not starting with the given string."""
+  teamLeader_not_starts_with: String
+
+  """All values ending with the given string."""
+  teamLeader_ends_with: String
+
+  """All values not ending with the given string."""
+  teamLeader_not_ends_with: String
+  referral: String
+
+  """All values that are not equal to given value."""
+  referral_not: String
+
+  """All values that are contained in given list."""
+  referral_in: [String!]
+
+  """All values that are not contained in given list."""
+  referral_not_in: [String!]
+
+  """All values less than the given value."""
+  referral_lt: String
+
+  """All values less than or equal the given value."""
+  referral_lte: String
+
+  """All values greater than the given value."""
+  referral_gt: String
+
+  """All values greater than or equal the given value."""
+  referral_gte: String
+
+  """All values containing the given string."""
+  referral_contains: String
+
+  """All values not containing the given string."""
+  referral_not_contains: String
+
+  """All values starting with the given string."""
+  referral_starts_with: String
+
+  """All values not starting with the given string."""
+  referral_not_starts_with: String
+
+  """All values ending with the given string."""
+  referral_ends_with: String
+
+  """All values not ending with the given string."""
+  referral_not_ends_with: String
+  referralEmail: String
+
+  """All values that are not equal to given value."""
+  referralEmail_not: String
+
+  """All values that are contained in given list."""
+  referralEmail_in: [String!]
+
+  """All values that are not contained in given list."""
+  referralEmail_not_in: [String!]
+
+  """All values less than the given value."""
+  referralEmail_lt: String
+
+  """All values less than or equal the given value."""
+  referralEmail_lte: String
+
+  """All values greater than the given value."""
+  referralEmail_gt: String
+
+  """All values greater than or equal the given value."""
+  referralEmail_gte: String
+
+  """All values containing the given string."""
+  referralEmail_contains: String
+
+  """All values not containing the given string."""
+  referralEmail_not_contains: String
+
+  """All values starting with the given string."""
+  referralEmail_starts_with: String
+
+  """All values not starting with the given string."""
+  referralEmail_not_starts_with: String
+
+  """All values ending with the given string."""
+  referralEmail_ends_with: String
+
+  """All values not ending with the given string."""
+  referralEmail_not_ends_with: String
+  textEmail: String
+
+  """All values that are not equal to given value."""
+  textEmail_not: String
+
+  """All values that are contained in given list."""
+  textEmail_in: [String!]
+
+  """All values that are not contained in given list."""
+  textEmail_not_in: [String!]
+
+  """All values less than the given value."""
+  textEmail_lt: String
+
+  """All values less than or equal the given value."""
+  textEmail_lte: String
+
+  """All values greater than the given value."""
+  textEmail_gt: String
+
+  """All values greater than or equal the given value."""
+  textEmail_gte: String
+
+  """All values containing the given string."""
+  textEmail_contains: String
+
+  """All values not containing the given string."""
+  textEmail_not_contains: String
+
+  """All values starting with the given string."""
+  textEmail_starts_with: String
+
+  """All values not starting with the given string."""
+  textEmail_not_starts_with: String
+
+  """All values ending with the given string."""
+  textEmail_ends_with: String
+
+  """All values not ending with the given string."""
+  textEmail_not_ends_with: String
+  salesOverride: Float
+
+  """All values that are not equal to given value."""
+  salesOverride_not: Float
+
+  """All values that are contained in given list."""
+  salesOverride_in: [Float!]
+
+  """All values that are not contained in given list."""
+  salesOverride_not_in: [Float!]
+
+  """All values less than the given value."""
+  salesOverride_lt: Float
+
+  """All values less than or equal the given value."""
+  salesOverride_lte: Float
+
+  """All values greater than the given value."""
+  salesOverride_gt: Float
+
+  """All values greater than or equal the given value."""
+  salesOverride_gte: Float
+  referralOverride: Float
+
+  """All values that are not equal to given value."""
+  referralOverride_not: Float
+
+  """All values that are contained in given list."""
+  referralOverride_in: [Float!]
+
+  """All values that are not contained in given list."""
+  referralOverride_not_in: [Float!]
+
+  """All values less than the given value."""
+  referralOverride_lt: Float
+
+  """All values less than or equal the given value."""
+  referralOverride_lte: Float
+
+  """All values greater than the given value."""
+  referralOverride_gt: Float
+
+  """All values greater than or equal the given value."""
+  referralOverride_gte: Float
+  managerOverride: Float
+
+  """All values that are not equal to given value."""
+  managerOverride_not: Float
+
+  """All values that are contained in given list."""
+  managerOverride_in: [Float!]
+
+  """All values that are not contained in given list."""
+  managerOverride_not_in: [Float!]
+
+  """All values less than the given value."""
+  managerOverride_lt: Float
+
+  """All values less than or equal the given value."""
+  managerOverride_lte: Float
+
+  """All values greater than the given value."""
+  managerOverride_gt: Float
+
+  """All values greater than or equal the given value."""
+  managerOverride_gte: Float
+}
+
+type OverrideSubscriptionPayload {
+  mutation: MutationType!
+  node: Override
+  updatedFields: [String!]
+  previousValues: OverridePreviousValues
+}
+
+input OverrideSubscriptionWhereInput {
+  """Logical AND on all given filters."""
+  AND: [OverrideSubscriptionWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [OverrideSubscriptionWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [OverrideSubscriptionWhereInput!]
+
+  """
+  The subscription event gets dispatched when it's listed in mutation_in
+  """
+  mutation_in: [MutationType!]
+
+  """
+  The subscription event gets only dispatched when one of the updated fields names is included in this list
+  """
+  updatedFields_contains: String
+
+  """
+  The subscription event gets only dispatched when all of the field names included in this list have been updated
+  """
+  updatedFields_contains_every: [String!]
+
+  """
+  The subscription event gets only dispatched when some of the field names included in this list have been updated
+  """
+  updatedFields_contains_some: [String!]
+  node: OverrideWhereInput
+}
+
+input OverrideUpdateDataInput {
+  overrideId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  advocateId: Int
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+  advocate: AdvocateUpdateOneInput
+}
+
+input OverrideUpdateInput {
+  overrideId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  advocateId: Int
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+  advocate: AdvocateUpdateOneInput
+}
+
+input OverrideUpdateManyDataInput {
+  overrideId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  advocateId: Int
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+}
+
+input OverrideUpdateManyInput {
+  create: [OverrideCreateInput!]
+  connect: [OverrideWhereUniqueInput!]
+  set: [OverrideWhereUniqueInput!]
+  disconnect: [OverrideWhereUniqueInput!]
+  delete: [OverrideWhereUniqueInput!]
+  update: [OverrideUpdateWithWhereUniqueNestedInput!]
+  updateMany: [OverrideUpdateManyWithWhereNestedInput!]
+  deleteMany: [OverrideScalarWhereInput!]
+  upsert: [OverrideUpsertWithWhereUniqueNestedInput!]
+}
+
+input OverrideUpdateManyMutationInput {
+  overrideId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  advocateId: Int
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+}
+
+input OverrideUpdateManyWithWhereNestedInput {
+  where: OverrideScalarWhereInput!
+  data: OverrideUpdateManyDataInput!
+}
+
+input OverrideUpdateWithWhereUniqueNestedInput {
+  where: OverrideWhereUniqueInput!
+  data: OverrideUpdateDataInput!
+}
+
+input OverrideUpsertWithWhereUniqueNestedInput {
+  where: OverrideWhereUniqueInput!
+  update: OverrideUpdateDataInput!
+  create: OverrideCreateInput!
+}
+
+input OverrideWhereInput {
+  """Logical AND on all given filters."""
+  AND: [OverrideWhereInput!]
+
+  """Logical OR on all given filters."""
+  OR: [OverrideWhereInput!]
+
+  """Logical NOT on all given filters combined by AND."""
+  NOT: [OverrideWhereInput!]
+  overrideId: Int
+
+  """All values that are not equal to given value."""
+  overrideId_not: Int
+
+  """All values that are contained in given list."""
+  overrideId_in: [Int!]
+
+  """All values that are not contained in given list."""
+  overrideId_not_in: [Int!]
+
+  """All values less than the given value."""
+  overrideId_lt: Int
+
+  """All values less than or equal the given value."""
+  overrideId_lte: Int
+
+  """All values greater than the given value."""
+  overrideId_gt: Int
+
+  """All values greater than or equal the given value."""
+  overrideId_gte: Int
+  insDateTime: DateTime
+
+  """All values that are not equal to given value."""
+  insDateTime_not: DateTime
+
+  """All values that are contained in given list."""
+  insDateTime_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  insDateTime_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  insDateTime_lt: DateTime
+
+  """All values less than or equal the given value."""
+  insDateTime_lte: DateTime
+
+  """All values greater than the given value."""
+  insDateTime_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  insDateTime_gte: DateTime
+  updateTime: DateTime
+
+  """All values that are not equal to given value."""
+  updateTime_not: DateTime
+
+  """All values that are contained in given list."""
+  updateTime_in: [DateTime!]
+
+  """All values that are not contained in given list."""
+  updateTime_not_in: [DateTime!]
+
+  """All values less than the given value."""
+  updateTime_lt: DateTime
+
+  """All values less than or equal the given value."""
+  updateTime_lte: DateTime
+
+  """All values greater than the given value."""
+  updateTime_gt: DateTime
+
+  """All values greater than or equal the given value."""
+  updateTime_gte: DateTime
+  delFlag: Boolean
+
+  """All values that are not equal to given value."""
+  delFlag_not: Boolean
+  sysFlag: Boolean
+
+  """All values that are not equal to given value."""
+  sysFlag_not: Boolean
+  advocateId: Int
+
+  """All values that are not equal to given value."""
+  advocateId_not: Int
+
+  """All values that are contained in given list."""
+  advocateId_in: [Int!]
+
+  """All values that are not contained in given list."""
+  advocateId_not_in: [Int!]
+
+  """All values less than the given value."""
+  advocateId_lt: Int
+
+  """All values less than or equal the given value."""
+  advocateId_lte: Int
+
+  """All values greater than the given value."""
+  advocateId_gt: Int
+
+  """All values greater than or equal the given value."""
+  advocateId_gte: Int
+  teamLeader: String
+
+  """All values that are not equal to given value."""
+  teamLeader_not: String
+
+  """All values that are contained in given list."""
+  teamLeader_in: [String!]
+
+  """All values that are not contained in given list."""
+  teamLeader_not_in: [String!]
+
+  """All values less than the given value."""
+  teamLeader_lt: String
+
+  """All values less than or equal the given value."""
+  teamLeader_lte: String
+
+  """All values greater than the given value."""
+  teamLeader_gt: String
+
+  """All values greater than or equal the given value."""
+  teamLeader_gte: String
+
+  """All values containing the given string."""
+  teamLeader_contains: String
+
+  """All values not containing the given string."""
+  teamLeader_not_contains: String
+
+  """All values starting with the given string."""
+  teamLeader_starts_with: String
+
+  """All values not starting with the given string."""
+  teamLeader_not_starts_with: String
+
+  """All values ending with the given string."""
+  teamLeader_ends_with: String
+
+  """All values not ending with the given string."""
+  teamLeader_not_ends_with: String
+  referral: String
+
+  """All values that are not equal to given value."""
+  referral_not: String
+
+  """All values that are contained in given list."""
+  referral_in: [String!]
+
+  """All values that are not contained in given list."""
+  referral_not_in: [String!]
+
+  """All values less than the given value."""
+  referral_lt: String
+
+  """All values less than or equal the given value."""
+  referral_lte: String
+
+  """All values greater than the given value."""
+  referral_gt: String
+
+  """All values greater than or equal the given value."""
+  referral_gte: String
+
+  """All values containing the given string."""
+  referral_contains: String
+
+  """All values not containing the given string."""
+  referral_not_contains: String
+
+  """All values starting with the given string."""
+  referral_starts_with: String
+
+  """All values not starting with the given string."""
+  referral_not_starts_with: String
+
+  """All values ending with the given string."""
+  referral_ends_with: String
+
+  """All values not ending with the given string."""
+  referral_not_ends_with: String
+  referralEmail: String
+
+  """All values that are not equal to given value."""
+  referralEmail_not: String
+
+  """All values that are contained in given list."""
+  referralEmail_in: [String!]
+
+  """All values that are not contained in given list."""
+  referralEmail_not_in: [String!]
+
+  """All values less than the given value."""
+  referralEmail_lt: String
+
+  """All values less than or equal the given value."""
+  referralEmail_lte: String
+
+  """All values greater than the given value."""
+  referralEmail_gt: String
+
+  """All values greater than or equal the given value."""
+  referralEmail_gte: String
+
+  """All values containing the given string."""
+  referralEmail_contains: String
+
+  """All values not containing the given string."""
+  referralEmail_not_contains: String
+
+  """All values starting with the given string."""
+  referralEmail_starts_with: String
+
+  """All values not starting with the given string."""
+  referralEmail_not_starts_with: String
+
+  """All values ending with the given string."""
+  referralEmail_ends_with: String
+
+  """All values not ending with the given string."""
+  referralEmail_not_ends_with: String
+  textEmail: String
+
+  """All values that are not equal to given value."""
+  textEmail_not: String
+
+  """All values that are contained in given list."""
+  textEmail_in: [String!]
+
+  """All values that are not contained in given list."""
+  textEmail_not_in: [String!]
+
+  """All values less than the given value."""
+  textEmail_lt: String
+
+  """All values less than or equal the given value."""
+  textEmail_lte: String
+
+  """All values greater than the given value."""
+  textEmail_gt: String
+
+  """All values greater than or equal the given value."""
+  textEmail_gte: String
+
+  """All values containing the given string."""
+  textEmail_contains: String
+
+  """All values not containing the given string."""
+  textEmail_not_contains: String
+
+  """All values starting with the given string."""
+  textEmail_starts_with: String
+
+  """All values not starting with the given string."""
+  textEmail_not_starts_with: String
+
+  """All values ending with the given string."""
+  textEmail_ends_with: String
+
+  """All values not ending with the given string."""
+  textEmail_not_ends_with: String
+  salesOverride: Float
+
+  """All values that are not equal to given value."""
+  salesOverride_not: Float
+
+  """All values that are contained in given list."""
+  salesOverride_in: [Float!]
+
+  """All values that are not contained in given list."""
+  salesOverride_not_in: [Float!]
+
+  """All values less than the given value."""
+  salesOverride_lt: Float
+
+  """All values less than or equal the given value."""
+  salesOverride_lte: Float
+
+  """All values greater than the given value."""
+  salesOverride_gt: Float
+
+  """All values greater than or equal the given value."""
+  salesOverride_gte: Float
+  referralOverride: Float
+
+  """All values that are not equal to given value."""
+  referralOverride_not: Float
+
+  """All values that are contained in given list."""
+  referralOverride_in: [Float!]
+
+  """All values that are not contained in given list."""
+  referralOverride_not_in: [Float!]
+
+  """All values less than the given value."""
+  referralOverride_lt: Float
+
+  """All values less than or equal the given value."""
+  referralOverride_lte: Float
+
+  """All values greater than the given value."""
+  referralOverride_gt: Float
+
+  """All values greater than or equal the given value."""
+  referralOverride_gte: Float
+  managerOverride: Float
+
+  """All values that are not equal to given value."""
+  managerOverride_not: Float
+
+  """All values that are contained in given list."""
+  managerOverride_in: [Float!]
+
+  """All values that are not contained in given list."""
+  managerOverride_not_in: [Float!]
+
+  """All values less than the given value."""
+  managerOverride_lt: Float
+
+  """All values less than or equal the given value."""
+  managerOverride_lte: Float
+
+  """All values greater than the given value."""
+  managerOverride_gt: Float
+
+  """All values greater than or equal the given value."""
+  managerOverride_gte: Float
+  advocate: AdvocateWhereInput
+}
+
+input OverrideWhereUniqueInput {
+  overrideId: Int
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
+
+type Query {
+  overrides(where: OverrideWhereInput, orderBy: OverrideOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Override]!
+  advocates(where: AdvocateWhereInput, orderBy: AdvocateOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Advocate]!
+  override(where: OverrideWhereUniqueInput!): Override
+  advocate(where: AdvocateWhereUniqueInput!): Advocate
+  overridesConnection(where: OverrideWhereInput, orderBy: OverrideOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): OverrideConnection!
+  advocatesConnection(where: AdvocateWhereInput, orderBy: AdvocateOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): AdvocateConnection!
+
+  """Fetches an object given its ID"""
+  node(
+    """The ID of an object"""
+    id: ID!
+  ): Node
+}
+
+type Subscription {
+  override(where: OverrideSubscriptionWhereInput): OverrideSubscriptionPayload
+  advocate(where: AdvocateSubscriptionWhereInput): AdvocateSubscriptionPayload
+}

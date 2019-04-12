@@ -1,0 +1,201 @@
+# import Advocate, Override from './generated/prisma.graphql'
+
+type Advocate {
+  advocateId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  overrides: [Override]
+}
+
+type Override {
+  overrideId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  advocateId: Int
+  advocate: Advocate
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+}
+
+type Query {
+  advocate (
+    where: AdvocateWhereUniqueInput
+  ): Advocate
+
+  advocates(
+    where: AdvocateWhereInput,
+    orderBy: AdvocateOrderByInput,
+    skip: Int,
+    after: String,
+    before: String,
+    first: Int,
+    last: Int
+  ): [Advocate]
+}
+
+type Mutation {
+  insertAdvocate(
+    data: AdvocateCreateInput
+  ): Advocate
+
+  updateAdvocate(
+    where: AdvocateWhereUniqueInput
+    data: AdvocateUpdateInput
+  ): Advocate
+
+  deleteAdvocate(
+    where: AdvocateWhereUniqueInput!
+  ): Advocate
+}
+
+input AdvocateCreateInput {
+  advocateId: Int!
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  overrides: OverrideCreateManyInput
+}
+
+input OverrideCreateManyInput {
+  create: [OverrideCreateInput!]
+  connect: [OverrideWhereUniqueInput!]
+}
+
+input OverrideCreateInput {
+  overrideId: Int!
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  advocateId: Int
+  teamLeader: String
+  referral: String
+  referralEmail: String
+  textEmail: String
+  salesOverride: Float
+  referralOverride: Float
+  managerOverride: Float
+  advocate: AdvocateCreateOneInput
+}
+
+input AdvocateCreateOneInput {
+  create: AdvocateCreateInput
+  connect: AdvocateWhereUniqueInput
+}
+
+input OverrideUpdateManyInput {
+  create: [OverrideCreateInput!]
+  connect: [OverrideWhereUniqueInput!]
+  disconnect: [OverrideWhereUniqueInput!]
+  delete: [OverrideWhereUniqueInput!]
+}
+
+input OverrideWhereUniqueInput {
+  overrideId: Int
+}
+
+input AdvocateWhereUniqueInput {
+  advocateId: Int
+}
+
+input AdvocateUpdateInput {
+  advocateId: Int
+  insDateTime: DateTime
+  updateTime: DateTime
+  delFlag: Boolean
+  sysFlag: Boolean
+  salesAgentId: Int
+  companyName: String
+  name: String
+  email: String
+  phone: String
+  textEmail: String
+  streetAddress1: String
+  streetAddress2: String
+  city: String
+  state: String
+  postalCode: String
+  country: String
+  overrides: OverrideUpdateManyInput
+}
+
+enum AdvocateOrderByInput {
+  advocateId_ASC
+  advocateId_DESC
+  insDateTime_ASC
+  insDateTime_DESC
+  updateTime_ASC
+  updateTime_DESC
+  delFlag_ASC
+  delFlag_DESC
+  sysFlag_ASC
+  sysFlag_DESC
+  salesAgentId_ASC
+  salesAgentId_DESC
+  companyName_ASC
+  companyName_DESC
+  name_ASC
+  name_DESC
+  email_ASC
+  email_DESC
+  phone_ASC
+  phone_DESC
+  textEmail_ASC
+  textEmail_DESC
+  streetAddress1_ASC
+  streetAddress1_DESC
+  streetAddress2_ASC
+  streetAddress2_DESC
+  city_ASC
+  city_DESC
+  state_ASC
+  state_DESC
+  postalCode_ASC
+  postalCode_DESC
+  country_ASC
+  country_DESC
+  id_ASC
+  id_DESC
+  updatedAt_ASC
+  updatedAt_DESC
+  createdAt_ASC
+  createdAt_DESC
+}
+
+input AdvocateWhereInput {
+  delFlag: Boolean
+} 
