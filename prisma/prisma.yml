@@ -1,2 +1,6 @@
 endpoint: https://us1.prisma.sh/arvilsonm/prisma-sql/dev
 datamodel: datamodel.prisma
+
+hooks:
+  post-deploy:
+    - graphql get-schema --project prisma
